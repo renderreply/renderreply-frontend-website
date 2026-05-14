@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 import { useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, Suspense } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BarChart3, MessageSquare, Zap, CheckCircle, XCircle, RefreshCw } from "lucide-react";
@@ -25,7 +25,7 @@ const ERROR_MESSAGES: Record<string, string> = {
 
 type ChartPoint = { name: string; replies: number; dms: number };
 
-export default function DashboardPage() {
+function DashboardContent() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -298,6 +298,18 @@ export default function DashboardPage() {
         </section>
       </main>
     </div>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-screen">
+        <RefreshCw className="w-8 h-8 animate-spin text-slate-400" />
+      </div>
+    }>
+      <DashboardContent />
+    </Suspense>
   );
 }
 
