@@ -26,10 +26,17 @@ export default function SignupPage() {
         email,
         password,
         name,
+        confirmPassword: password, // The backend schema requires confirmPassword
       });
       router.push("/login");
-    } catch (error) {
-      alert("Error creating account. Please try again.");
+    } catch (error: any) {
+      const msg = error.response?.data?.error || "Error creating account. Please try again.";
+      const details = error.response?.data?.details;
+      if (details && Array.isArray(details)) {
+        alert(`${msg}: ${details[0].message}`);
+      } else {
+        alert(msg);
+      }
     } finally {
       setLoading(false);
     }
