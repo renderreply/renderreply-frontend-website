@@ -76,12 +76,6 @@ export function Navbar() {
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 truncate">{session?.user?.email}</p>
                   </div>
                   <div className="p-2 space-y-1">
-                    <Link href="/dashboard" onClick={() => setIsMenuOpen(false)}>
-                      <div className="flex items-center gap-3 px-5 py-3.5 text-[11px] font-black uppercase tracking-widest rounded-2xl hover:bg-slate-50 transition-colors text-slate-600">
-                        <LayoutDashboard size={16} />
-                        Dashboard
-                      </div>
-                    </Link>
                     <Link href="/dashboard/settings" onClick={() => setIsMenuOpen(false)}>
                       <div className="flex items-center gap-3 px-5 py-3.5 text-[11px] font-black uppercase tracking-widest rounded-2xl hover:bg-slate-50 transition-colors text-slate-600">
                         <Settings size={16} />
@@ -126,6 +120,16 @@ export function Navbar() {
 
         {/* Mobile Actions */}
         <div className="lg:hidden flex items-center gap-2">
+          <button 
+            className="p-2 text-slate-900"
+            onClick={() => {
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+              setIsProfileMenuOpen(false);
+            }}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
           {status === "authenticated" ? (
             <div className="relative" ref={profileMenuRef}>
               <button 
@@ -145,12 +149,6 @@ export function Navbar() {
                     <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-0.5 truncate">{session?.user?.email}</p>
                   </div>
                   <div className="py-1.5 space-y-0.5">
-                    <Link href="/dashboard" onClick={() => setIsProfileMenuOpen(false)}>
-                      <div className="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-slate-50 text-slate-600 transition-colors">
-                        <LayoutDashboard size={14} />
-                        Dashboard
-                      </div>
-                    </Link>
                     <Link href="/dashboard/settings" onClick={() => setIsProfileMenuOpen(false)}>
                       <div className="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-slate-50 text-slate-600 transition-colors">
                         <Settings size={14} />
@@ -182,16 +180,6 @@ export function Navbar() {
               )}
             </div>
           ) : null}
-          
-          <button 
-            className="p-2 text-slate-900"
-            onClick={() => {
-              setIsMobileMenuOpen(!isMobileMenuOpen);
-              setIsProfileMenuOpen(false);
-            }}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
       </div>
 
