@@ -64,22 +64,22 @@ export default function TemplatesPage() {
 
       <main className="flex-1 p-4 md:p-8">
         {/* Mobile Sub-Nav */}
-        <nav className="md:hidden flex items-center gap-2 mb-8 overflow-x-auto pb-2 no-scrollbar">
-          <Link href="/dashboard" className="px-4 py-2 bg-white border border-slate-200 rounded-full text-xs font-bold text-slate-500 whitespace-nowrap">
-            Home
+        <nav className="md:hidden flex items-center gap-2 mb-6 overflow-x-auto pb-2 no-scrollbar px-1">
+          <Link href="/dashboard" className="px-5 py-2.5 bg-white border border-slate-200 rounded-full text-xs font-bold text-slate-500 whitespace-nowrap shadow-sm">
+            Dashboard
           </Link>
-          <Link href="/dashboard/rules" className="px-4 py-2 bg-white border border-slate-200 rounded-full text-xs font-bold text-slate-500 whitespace-nowrap">
-            Automation Rules
+          <Link href="/dashboard/rules" className="px-5 py-2.5 bg-white border border-slate-200 rounded-full text-xs font-bold text-slate-500 whitespace-nowrap shadow-sm">
+            Rules
           </Link>
-          <Link href="/dashboard/templates" className="px-4 py-2 bg-black border border-black rounded-full text-xs font-bold text-white whitespace-nowrap">
+          <Link href="/dashboard/templates" className="px-5 py-2.5 bg-black border border-black rounded-full text-xs font-bold text-white whitespace-nowrap shadow-md">
             Templates
           </Link>
         </nav>
 
-        <header className="flex justify-between items-center mb-10">
+        <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10">
           <div>
-            <h1 className="text-3xl font-bold">Reply Templates</h1>
-            <p className="text-muted-foreground">Save time with pre-written responses.</p>
+            <h1 className="text-2xl md:text-3xl font-[1000] tracking-tight leading-tight">Reply Templates</h1>
+            <p className="text-xs md:text-sm font-medium text-slate-500 mt-1">Save time with pre-written responses.</p>
           </div>
           <Button className="bg-primary text-white" onClick={() => handleOpenModal()}>
             <Plus className="mr-2 h-4 w-4" /> Create Template
