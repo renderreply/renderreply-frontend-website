@@ -14,10 +14,16 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsMenuOpen(false);
+      }
+      if (profileMenuRef.current && !profileMenuRef.current.contains(event.target as Node)) {
+        setIsProfileMenuOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -70,6 +76,12 @@ export function Navbar() {
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 truncate">{session?.user?.email}</p>
                   </div>
                   <div className="p-2 space-y-1">
+                    <Link href="/dashboard" onClick={() => setIsMenuOpen(false)}>
+                      <div className="flex items-center gap-3 px-5 py-3.5 text-[11px] font-black uppercase tracking-widest rounded-2xl hover:bg-slate-50 transition-colors text-slate-600">
+                        <LayoutDashboard size={16} />
+                        Dashboard
+                      </div>
+                    </Link>
                     <Link href="/dashboard/settings" onClick={() => setIsMenuOpen(false)}>
                       <div className="flex items-center gap-3 px-5 py-3.5 text-[11px] font-black uppercase tracking-widest rounded-2xl hover:bg-slate-50 transition-colors text-slate-600">
                         <Settings size={16} />
@@ -113,22 +125,77 @@ export function Navbar() {
         </div>
 
         {/* Mobile Actions */}
-        <div className="lg:hidden flex items-center gap-3">
-          {status === "authenticated" && (
-            <div className="w-9 h-9 rounded-full bg-slate-950 text-white flex items-center justify-center font-black text-[10px] shadow-lg shadow-black/5">
-              {session?.user?.name?.[0]?.toUpperCase() || "U"}
+        <div className="lg:hidden flex items-center gap-2">
+          {status === "authenticated" ? (
+            <div className="relative" ref={profileMenuRef}>
+              <button 
+                onClick={() => {
+                  setIsProfileMenuOpen(!isProfileMenuOpen);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="w-9 h-9 rounded-full bg-slate-950 text-white flex items-center justify-center font-black text-[10px] shadow-lg shadow-black/5 active:scale-95 transition-transform"
+              >
+                {session?.user?.name?.[0]?.toUpperCase() || "U"}
+              </button>
+              
+              {isProfileMenuOpen && (
+                <div className="absolute right-0 mt-4 w-64 bg-white rounded-[24px] border border-slate-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] p-1.5 animate-in fade-in zoom-in duration-200">
+                  <div className="p-4 border-b border-slate-50">
+                    <p className="font-black text-xs text-black truncate">{session?.user?.name}</p>
+                    <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-0.5 truncate">{session?.user?.email}</p>
+                  </div>
+                  <div className="py-1.5 space-y-0.5">
+                    <Link href="/dashboard" onClick={() => setIsProfileMenuOpen(false)}>
+                      <div className="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-slate-50 text-slate-600 transition-colors">
+                        <LayoutDashboard size={14} />
+                        Dashboard
+                      </div>
+                    </Link>
+                    <Link href="/dashboard/settings" onClick={() => setIsProfileMenuOpen(false)}>
+                      <div className="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-slate-50 text-slate-600 transition-colors">
+                        <Settings size={14} />
+                        Settings
+                      </div>
+                    </Link>
+                    <div 
+                      onClick={() => signOut({ callbackUrl: "/" })}
+                      className="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-slate-50 text-slate-600 transition-colors cursor-pointer"
+                    >
+                      <LogOut size={14} />
+                      Sign Out
+                    </div>
+                    <div 
+                      onClick={() => {
+                        if(confirm("⚠️ WARNING: Your account and all data will be permanently deleted in 7 days. Proceed?")) {
+                          alert("Account deletion scheduled.");
+                          localStorage.setItem('deletion_scheduled', 'true');
+                          signOut({ callbackUrl: "/" });
+                        }
+                      }}
+                      className="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-rose-50 text-rose-600 transition-colors cursor-pointer border-t border-slate-50 mt-1"
+                    >
+                      <X size={14} />
+                      Delete Account
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-          )}
+          ) : null}
+          
           <button 
             className="p-2 text-slate-900"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => {
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+              setIsProfileMenuOpen(false);
+            }}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu Dropdown (Hamburger) */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-slate-50 p-6 flex flex-col gap-6 animate-in slide-in-from-top-2 duration-200 shadow-2xl">
           <div className="flex flex-col gap-6 text-sm font-black uppercase tracking-[0.2em] text-slate-400">
@@ -137,55 +204,16 @@ export function Navbar() {
             <Link href="/pricing" onClick={() => setIsMobileMenuOpen(false)} className={`transition-colors ${pathname?.startsWith('/pricing') ? 'text-black' : 'hover:text-black'}`}>Pricing</Link>
           </div>
           
-          <div className="pt-6 border-t border-slate-50 flex flex-col gap-4">
-            {status === "authenticated" ? (
-              <>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-slate-950 text-white flex items-center justify-center font-black text-xs shadow-lg shadow-black/5">
-                    {session?.user?.name?.[0]?.toUpperCase() || "U"}
-                  </div>
-                  <div>
-                    <p className="font-black text-sm text-black truncate">{session?.user?.name}</p>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 truncate">{session?.user?.email}</p>
-                  </div>
-                </div>
-                <Link href="/dashboard/settings" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button variant="outline" className="w-full justify-start rounded-xl h-12 text-xs font-black uppercase tracking-widest border-slate-200">
-                    <Settings size={16} className="mr-3" /> Account Settings
-                  </Button>
-                </Link>
-                <Button 
-                  variant="ghost" 
-                  onClick={() => signOut({ callbackUrl: "/" })}
-                  className="w-full justify-start rounded-xl h-12 text-xs font-black uppercase tracking-widest text-slate-600"
-                >
-                  <LogOut size={16} className="mr-3" /> Sign Out
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  onClick={() => {
-                    if(confirm("⚠️ WARNING: Your account and all data will be permanently deleted in 7 days. If you login within this period, the deletion will be cancelled and you will need to request it again. Proceed?")) {
-                      alert("Account deletion scheduled for 7 days from now.");
-                      localStorage.setItem('deletion_scheduled', 'true');
-                      signOut({ callbackUrl: "/" });
-                    }
-                  }}
-                  className="w-full justify-start rounded-xl h-12 text-xs font-black uppercase tracking-widest text-rose-600 hover:text-rose-700 hover:bg-rose-50 border border-rose-100"
-                >
-                  <X size={16} className="mr-3" /> Delete Account
-                </Button>
-              </>
-            ) : (
-              <div className="flex flex-col gap-3">
-                <Link href="/login" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
-                  <Button variant="outline" className="w-full rounded-2xl h-14 text-[11px] font-black uppercase tracking-widest border-slate-200">Login</Button>
-                </Link>
-                <Link href="/signup" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
-                  <Button className="w-full bg-black hover:bg-black/90 text-white rounded-2xl h-14 font-black text-[11px] uppercase tracking-widest shadow-xl shadow-black/10">Start Free</Button>
-                </Link>
-              </div>
-            )}
-          </div>
+          {status !== "authenticated" && (
+            <div className="pt-6 border-t border-slate-50 flex flex-col gap-3">
+              <Link href="/login" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
+                <Button variant="outline" className="w-full rounded-2xl h-14 text-[11px] font-black uppercase tracking-widest border-slate-200">Login</Button>
+              </Link>
+              <Link href="/signup" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
+                <Button className="w-full bg-black hover:bg-black/90 text-white rounded-2xl h-14 font-black text-[11px] uppercase tracking-widest shadow-xl shadow-black/10">Start Free</Button>
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </nav>
