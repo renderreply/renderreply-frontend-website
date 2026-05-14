@@ -32,15 +32,17 @@ export const Hero = () => {
                 {status === "authenticated" ? "Go to Automation" : "Start Free"}
               </Button>
             </Link>
-            <Button variant="ghost" className="h-16 px-12 rounded-[24px] font-black text-sm uppercase tracking-widest text-slate-400 hover:text-black hover:bg-slate-50 flex items-center gap-2 transition-all">
-              View Pricing <ArrowRight size={18} />
-            </Button>
+            <Link href="/pricing">
+              <Button variant="ghost" className="h-16 px-12 rounded-[24px] font-black text-sm uppercase tracking-widest text-slate-400 hover:text-black hover:bg-slate-50 flex items-center gap-2 transition-all">
+                View Pricing <ArrowRight size={18} />
+              </Button>
+            </Link>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-12 pt-10 border-t border-slate-50">
-            <TrustBadge text="No credit card" />
-            <TrustBadge text="Setup in 2 mins" />
-            <TrustBadge text="Meta Verified API" />
+            <TrustBadge text="Automate" />
+            <TrustBadge text="Manage" />
+            <TrustBadge text="Grow" />
           </div>
         </div>
       </div>
