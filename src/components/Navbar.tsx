@@ -24,6 +24,13 @@ export function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (status === "authenticated" && localStorage.getItem('deletion_scheduled')) {
+      alert("⚠️ NOTICE: Your account was scheduled for deletion. By logging in, the deletion process has been cancelled. If you still wish to delete your account, please request it again from the settings.");
+      localStorage.removeItem('deletion_scheduled');
+    }
+  }, [status]);
+
   if (pathname === "/login" || pathname === "/signup") {
     return null;
   }
@@ -71,10 +78,23 @@ export function Navbar() {
                     </Link>
                     <div 
                       onClick={() => signOut({ callbackUrl: "/" })}
-                      className="flex items-center gap-3 px-5 py-3.5 text-[11px] font-black uppercase tracking-widest rounded-2xl hover:bg-rose-50 text-rose-600 transition-colors cursor-pointer"
+                      className="flex items-center gap-3 px-5 py-3.5 text-[11px] font-black uppercase tracking-widest rounded-2xl hover:bg-slate-50 text-slate-600 transition-colors cursor-pointer"
                     >
                       <LogOut size={16} />
                       Sign Out
+                    </div>
+                    <div 
+                      onClick={() => {
+                        if(confirm("⚠️ WARNING: Your account and all data will be permanently deleted in 7 days. If you login within this period, the deletion will be cancelled and you will need to request it again. Proceed?")) {
+                          alert("Account deletion scheduled for 7 days from now.");
+                          localStorage.setItem('deletion_scheduled', 'true');
+                          signOut({ callbackUrl: "/" });
+                        }
+                      }}
+                      className="flex items-center gap-3 px-5 py-3.5 text-[11px] font-black uppercase tracking-widest rounded-2xl hover:bg-rose-50 text-rose-600 transition-colors cursor-pointer border-t border-slate-50 mt-1"
+                    >
+                      <X size={16} />
+                      Delete Account
                     </div>
                   </div>
                 </div>
@@ -92,13 +112,20 @@ export function Navbar() {
           )}
         </div>
 
-        {/* Mobile Hamburger Button */}
-        <button 
-          className="lg:hidden p-2 text-slate-900"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Actions */}
+        <div className="lg:hidden flex items-center gap-3">
+          {status === "authenticated" && (
+            <div className="w-9 h-9 rounded-full bg-slate-950 text-white flex items-center justify-center font-black text-[10px] shadow-lg shadow-black/5">
+              {session?.user?.name?.[0]?.toUpperCase() || "U"}
+            </div>
+          )}
+          <button 
+            className="p-2 text-slate-900"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Dropdown */}
@@ -130,9 +157,22 @@ export function Navbar() {
                 <Button 
                   variant="ghost" 
                   onClick={() => signOut({ callbackUrl: "/" })}
-                  className="w-full justify-start rounded-xl h-12 text-xs font-black uppercase tracking-widest text-rose-600 hover:text-rose-700 hover:bg-rose-50"
+                  className="w-full justify-start rounded-xl h-12 text-xs font-black uppercase tracking-widest text-slate-600"
                 >
                   <LogOut size={16} className="mr-3" /> Sign Out
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  onClick={() => {
+                    if(confirm("⚠️ WARNING: Your account and all data will be permanently deleted in 7 days. If you login within this period, the deletion will be cancelled and you will need to request it again. Proceed?")) {
+                      alert("Account deletion scheduled for 7 days from now.");
+                      localStorage.setItem('deletion_scheduled', 'true');
+                      signOut({ callbackUrl: "/" });
+                    }
+                  }}
+                  className="w-full justify-start rounded-xl h-12 text-xs font-black uppercase tracking-widest text-rose-600 hover:text-rose-700 hover:bg-rose-50 border border-rose-100"
+                >
+                  <X size={16} className="mr-3" /> Delete Account
                 </Button>
               </>
             ) : (
