@@ -44,54 +44,50 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-[#0a0a0a] relative overflow-hidden font-sans">
-      {/* Dynamic Background Elements */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[120px] animate-pulse" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-600/20 rounded-full blur-[120px] animate-pulse" />
-
-      <main className="w-full max-w-[480px] px-6 py-12 relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+    <div className="min-h-screen w-full flex items-center justify-center bg-slate-50 relative overflow-hidden font-sans">
+      <main className="w-full max-w-[480px] px-6 py-12 relative z-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
         {/* Logo Section */}
         <div className="flex flex-col items-center mb-8">
-          <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-2xl mb-4 -rotate-3 hover:rotate-0 transition-transform duration-500">
-            <span className="text-black text-2xl font-black italic">R</span>
+          <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center shadow-xl mb-4 -rotate-3">
+            <span className="text-white text-xl font-black italic">R</span>
           </div>
-          <h2 className="text-white text-lg font-black tracking-tight">RenderReply</h2>
+          <h2 className="text-slate-900 text-lg font-black tracking-tight">RenderReply</h2>
         </div>
 
-        {/* Glassmorphism Card */}
-        <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[40px] p-8 md:p-12 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.5)]">
+        {/* Clean Light Card */}
+        <div className="bg-white border border-slate-200 rounded-[32px] p-8 md:p-12 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)]">
           <div className="mb-10 text-center">
-            <h1 className="text-3xl font-black text-white mb-2 tracking-tight">Create account</h1>
-            <p className="text-sm font-medium text-slate-400">Join the elite standard for Instagram automation</p>
+            <h1 className="text-3xl font-black text-slate-900 mb-2 tracking-tight">Create account</h1>
+            <p className="text-sm font-medium text-slate-500">Join the elite standard for Instagram automation</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 ml-1">Full Name</label>
+              <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Full Name</label>
               <Input 
                 type="text" 
                 placeholder="Jane Doe" 
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required 
-                className="h-14 rounded-2xl bg-white/5 border-white/10 text-white px-5 focus-visible:ring-blue-500/50 focus-visible:bg-white/10 transition-all placeholder:text-slate-600 shadow-none outline-none"
+                className="h-14 rounded-2xl bg-slate-50 border-slate-200 text-slate-900 px-5 focus-visible:ring-black/5 focus-visible:bg-white transition-all placeholder:text-slate-400 shadow-none outline-none"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 ml-1">Email Address</label>
+              <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Email Address</label>
               <Input 
                 type="email" 
                 placeholder="name@company.com" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required 
-                className="h-14 rounded-2xl bg-white/5 border-white/10 text-white px-5 focus-visible:ring-blue-500/50 focus-visible:bg-white/10 transition-all placeholder:text-slate-600 shadow-none outline-none"
+                className="h-14 rounded-2xl bg-slate-50 border-slate-200 text-slate-900 px-5 focus-visible:ring-black/5 focus-visible:bg-white transition-all placeholder:text-slate-400 shadow-none outline-none"
               />
             </div>
             
             <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 ml-1">Create Password</label>
+              <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Create Password</label>
               <div className="relative">
                 <Input 
                   type={showPassword ? "text" : "password"} 
@@ -99,26 +95,26 @@ export default function SignupPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required 
-                  className="h-14 rounded-2xl bg-white/5 border-white/10 text-white px-5 pr-12 focus-visible:ring-blue-500/50 focus-visible:bg-white/10 transition-all placeholder:text-slate-600 shadow-none outline-none"
+                  className="h-14 rounded-2xl bg-slate-50 border-slate-200 text-slate-900 px-5 pr-12 focus-visible:ring-black/5 focus-visible:bg-white transition-all placeholder:text-slate-400 shadow-none outline-none"
                 />
                 <button 
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-black transition-colors"
                 >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
             </div>
             
-            <Button type="submit" disabled={loading} className="w-full h-14 rounded-2xl bg-white text-black hover:bg-slate-200 font-black text-sm transition-all active:scale-[0.98] mt-4 shadow-xl shadow-white/5">
+            <Button type="submit" disabled={loading} className="w-full h-14 rounded-2xl bg-black text-white hover:bg-slate-800 font-black text-sm transition-all active:scale-[0.98] mt-4 shadow-xl">
               {loading ? "Creating account..." : "Sign Up"}
             </Button>
           </form>
 
           <p className="text-sm font-medium text-slate-500 mt-10 text-center">
             Already have an account?{" "}
-            <Link href="/login" className="text-white hover:text-blue-400 font-bold transition-colors">
+            <Link href="/login" className="text-black hover:text-slate-600 font-bold underline underline-offset-4 transition-colors">
               Sign in
             </Link>
           </p>
