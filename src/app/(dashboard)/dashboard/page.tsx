@@ -140,6 +140,22 @@ function DashboardContent() {
         </nav>
       </aside>
 
+      {/* Mobile Bottom Nav */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t z-50 flex items-center justify-around p-3 pb-6">
+        <Link href="/dashboard" className="flex flex-col items-center gap-1 text-primary">
+          <BarChart3 className="w-5 h-5" />
+          <span className="text-[10px] font-bold uppercase">Home</span>
+        </Link>
+        <Link href="/dashboard/rules" className="flex flex-col items-center gap-1 text-slate-400">
+          <Zap className="w-5 h-5" />
+          <span className="text-[10px] font-bold uppercase">Rules</span>
+        </Link>
+        <Link href="/dashboard/templates" className="flex flex-col items-center gap-1 text-slate-400">
+          <MessageSquare className="w-5 h-5" />
+          <span className="text-[10px] font-bold uppercase">Templates</span>
+        </Link>
+      </nav>
+
       <main className="flex-1 p-8">
         <header className="flex justify-between items-center mb-10">
           <div>
