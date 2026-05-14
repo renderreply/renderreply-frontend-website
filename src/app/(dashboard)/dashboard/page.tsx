@@ -140,7 +140,20 @@ function DashboardContent() {
         </nav>
       </aside>
 
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-4 md:p-8">
+        {/* Mobile Sub-Nav */}
+        <nav className="md:hidden flex items-center gap-2 mb-8 overflow-x-auto pb-2 no-scrollbar">
+          <Link href="/dashboard" className="px-4 py-2 bg-black border border-black rounded-full text-xs font-bold text-white whitespace-nowrap">
+            Home
+          </Link>
+          <Link href="/dashboard/rules" className="px-4 py-2 bg-white border border-slate-200 rounded-full text-xs font-bold text-slate-500 whitespace-nowrap">
+            Automation Rules
+          </Link>
+          <Link href="/dashboard/templates" className="px-4 py-2 bg-white border border-slate-200 rounded-full text-xs font-bold text-slate-500 whitespace-nowrap">
+            Templates
+          </Link>
+        </nav>
+
         <header className="flex justify-between items-center mb-10">
           <div>
             <h1 className="text-3xl font-bold">Welcome back, {session?.user?.name || 'User'}</h1>
