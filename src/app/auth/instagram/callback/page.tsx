@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { api } from "@/lib/api";
 import { Loader2, CheckCircle2, XCircle } from "lucide-react";
 
-export default function InstagramCallback() {
+function CallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { data: session } = useSession();
@@ -71,5 +71,17 @@ export default function InstagramCallback() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function InstagramCallback() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <Loader2 className="w-10 h-10 animate-spin text-primary" />
+      </div>
+    }>
+      <CallbackContent />
+    </Suspense>
   );
 }
