@@ -91,7 +91,8 @@ function DashboardContent() {
 
   const handleConnect = () => {
     const email = (session?.user as any)?.email || '';
-    const loginUrl = `${process.env.NEXT_PUBLIC_API_URL}/auth/instagram/login?state=${encodeURIComponent(email)}`;
+    const origin = window.location.origin;
+    const loginUrl = `${process.env.NEXT_PUBLIC_API_URL}/auth/instagram/login?email=${encodeURIComponent(email)}&origin=${encodeURIComponent(origin)}`;
     window.location.href = loginUrl;
   };
 
