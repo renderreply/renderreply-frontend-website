@@ -169,7 +169,7 @@ export default function Home() {
               © {new Date().getFullYear()} RenderReply Inc. All rights reserved.
             </p>
             <div className="flex gap-6 mt-6 md:mt-0 text-slate-400">
-              <a href="#" className="hover:text-black transition-colors"><InstagramIcon size={20} /></a>
+              <a href="https://www.instagram.com/renderreply?igsh=bHIzeGllZXlzcmQ2&utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors"><InstagramIcon size={20} /></a>
               <a href="#" className="hover:text-black transition-colors"><Globe size={20} /></a>
             </div>
           </div>

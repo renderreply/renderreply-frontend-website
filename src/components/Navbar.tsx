@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import { User, LogOut, ChevronDown, LayoutDashboard, Settings, Menu, X } from "lucide-react";
+import { User, LogOut, ChevronDown, LayoutDashboard, Settings, Menu, X, Mail, HelpCircle, MessageSquare } from "lucide-react";
 
 export function Navbar() {
   const { data: session, status } = useSession();
@@ -103,6 +103,29 @@ export function Navbar() {
                       Delete Account
                     </div>
                   </div>
+                  
+                  {/* Customer Support Section */}
+                  <div className="p-2 border-t border-slate-50 bg-slate-50/50 rounded-b-[32px]">
+                    <p className="px-5 py-2 text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">Customer Support</p>
+                    <a href="https://wa.me/917995463504?text=Hi%20RenderReply%20Support,%20I%20need%20help%20with%20my%20account." target="_blank" rel="noopener noreferrer">
+                      <div className="flex items-center gap-3 px-5 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white transition-colors text-emerald-600">
+                        <MessageSquare size={14} />
+                        WhatsApp Support
+                      </div>
+                    </a>
+                    <a href="mailto:renderreply@gmail.com">
+                      <div className="flex items-center gap-3 px-5 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white transition-colors text-slate-600">
+                        <Mail size={14} />
+                        Email Us
+                      </div>
+                    </a>
+                    <Link href="/faq">
+                      <div className="flex items-center gap-3 px-5 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white transition-colors text-slate-600">
+                        <HelpCircle size={14} />
+                        FAQ
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -175,6 +198,29 @@ export function Navbar() {
                       <X size={14} />
                       Delete Account
                     </div>
+                  </div>
+
+                  {/* Customer Support Section Mobile */}
+                  <div className="p-2 border-t border-slate-50 bg-slate-50/50 rounded-b-[24px]">
+                    <p className="px-4 py-2 text-[8px] font-black uppercase tracking-[0.2em] text-slate-400">Support</p>
+                    <a href="https://wa.me/917995463504?text=Hi%20RenderReply%20Support,%20I%20need%20help%20with%20my%20account." target="_blank" rel="noopener noreferrer">
+                      <div className="flex items-center gap-3 px-4 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-white transition-colors text-emerald-600">
+                        <MessageSquare size={14} />
+                        WhatsApp
+                      </div>
+                    </a>
+                    <a href="mailto:renderreply@gmail.com">
+                      <div className="flex items-center gap-3 px-4 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-white transition-colors text-slate-600">
+                        <Mail size={14} />
+                        Email
+                      </div>
+                    </a>
+                    <Link href="/faq" onClick={() => setIsProfileMenuOpen(false)}>
+                      <div className="flex items-center gap-3 px-4 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-white transition-colors text-slate-600">
+                        <HelpCircle size={14} />
+                        FAQ
+                      </div>
+                    </Link>
                   </div>
                 </div>
               )}
