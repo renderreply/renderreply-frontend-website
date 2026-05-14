@@ -112,7 +112,7 @@ export default function RulesPage() {
 
         <RuleBuilder 
           open={builderOpen} 
-          onOpenChange={(open) => {
+          onOpenChange={(open: boolean) => {
             setBuilderOpen(open);
             if (!open) setEditingRule(null);
           }} 
