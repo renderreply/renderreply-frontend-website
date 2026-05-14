@@ -99,39 +99,18 @@ export default function RulesPage() {
         </nav>
       </aside>
 
-      {/* Mobile Bottom Nav */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t z-50 flex items-center justify-around p-3 pb-6">
-        <Link href="/dashboard" className="flex flex-col items-center gap-1 text-slate-400">
-          <BarChart3 className="w-5 h-5" />
-          <span className="text-[10px] font-bold uppercase">Home</span>
-        </Link>
-        <Link href="/dashboard/rules" className="flex flex-col items-center gap-1 text-primary">
-          <Zap className="w-5 h-5" />
-          <span className="text-[10px] font-bold uppercase">Rules</span>
-        </Link>
-        <Link href="/dashboard/templates" className="flex flex-col items-center gap-1 text-slate-400">
-          <MessageSquare className="w-5 h-5" />
-          <span className="text-[10px] font-bold uppercase">Templates</span>
-        </Link>
-      </nav>
-
       <main className="flex-1 p-8">
         <header className="flex justify-between items-center mb-10">
           <div>
             <h1 className="text-3xl font-bold">Automation Rules</h1>
             <p className="text-muted-foreground">Manage your if/then logic for Instagram.</p>
           </div>
+          <div className="flex gap-4">
+            <Button className="bg-primary text-white" onClick={handleCreate}>
+              <Plus className="mr-2 h-4 w-4" /> Create New Rule
+            </Button>
+          </div>
         </header>
-
-        {/* Floating Create Button */}
-        <div className="fixed top-24 right-6 z-40 md:relative md:top-0 md:right-0 md:mb-8 md:z-auto">
-          <Button 
-            className="bg-black text-white hover:bg-slate-800 shadow-2xl rounded-full px-6 h-12 font-bold animate-in fade-in zoom-in duration-500" 
-            onClick={handleCreate}
-          >
-            <Plus className="mr-2 h-5 w-5" /> Create New Rule
-          </Button>
-        </div>
 
         <RuleBuilder 
           open={builderOpen} 
