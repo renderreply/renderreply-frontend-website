@@ -39,7 +39,7 @@ export default function LoginPage() {
     if (result?.error) {
       alert("Invalid credentials");
     } else {
-      router.push("/dashboard");
+      router.push("/");
     }
     setLoading(false);
   };
