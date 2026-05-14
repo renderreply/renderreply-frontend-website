@@ -121,12 +121,17 @@ export default function RulesPage() {
             <h1 className="text-3xl font-bold">Automation Rules</h1>
             <p className="text-muted-foreground">Manage your if/then logic for Instagram.</p>
           </div>
-          <div className="flex gap-4">
-            <Button className="bg-primary text-white" onClick={handleCreate}>
-              <Plus className="mr-2 h-4 w-4" /> Create New Rule
-            </Button>
-          </div>
         </header>
+
+        {/* Floating Create Button */}
+        <div className="fixed top-24 right-6 z-40 md:relative md:top-0 md:right-0 md:mb-8 md:z-auto">
+          <Button 
+            className="bg-black text-white hover:bg-slate-800 shadow-2xl rounded-full px-6 h-12 font-bold animate-in fade-in zoom-in duration-500" 
+            onClick={handleCreate}
+          >
+            <Plus className="mr-2 h-5 w-5" /> Create New Rule
+          </Button>
+        </div>
 
         <RuleBuilder 
           open={builderOpen} 
