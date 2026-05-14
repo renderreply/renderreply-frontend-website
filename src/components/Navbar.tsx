@@ -15,6 +15,7 @@ export function Navbar() {
   const menuRef = useRef<HTMLDivElement>(null);
 
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
   const profileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -24,6 +25,7 @@ export function Navbar() {
       }
       if (profileMenuRef.current && !profileMenuRef.current.contains(event.target as Node)) {
         setIsProfileMenuOpen(false);
+        setIsSupportOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -104,27 +106,41 @@ export function Navbar() {
                     </div>
                   </div>
                   
-                  {/* Customer Support Section */}
+                  {/* Customer Support Collapsible Section */}
                   <div className="p-2 border-t border-slate-50 bg-slate-50/50 rounded-b-[32px]">
-                    <p className="px-5 py-2 text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">Customer Support</p>
-                    <a href="https://wa.me/917995463504?text=Hi%20RenderReply%20Support,%20I%20need%20help%20with%20my%20account." target="_blank" rel="noopener noreferrer">
-                      <div className="flex items-center gap-3 px-5 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white transition-colors text-emerald-600">
-                        <MessageSquare size={14} />
-                        WhatsApp Support
-                      </div>
-                    </a>
-                    <a href="mailto:renderreply@gmail.com">
-                      <div className="flex items-center gap-3 px-5 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white transition-colors text-slate-600">
-                        <Mail size={14} />
-                        Email Us
-                      </div>
-                    </a>
-                    <Link href="/faq">
-                      <div className="flex items-center gap-3 px-5 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white transition-colors text-slate-600">
+                    <button 
+                      onClick={() => setIsSupportOpen(!isSupportOpen)}
+                      className="w-full flex items-center justify-between px-5 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white transition-colors text-slate-500 hover:text-black"
+                    >
+                      <div className="flex items-center gap-3">
                         <HelpCircle size={14} />
-                        FAQ
+                        Customer Support
                       </div>
-                    </Link>
+                      <ChevronDown size={12} className={`transition-transform duration-300 ${isSupportOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {isSupportOpen && (
+                      <div className="mt-1 space-y-0.5 animate-in slide-in-from-top-1 duration-200">
+                        <a href="https://wa.me/917995463504?text=Hi%20RenderReply%20Support,%20I%20need%20help%20with%20my%20account." target="_blank" rel="noopener noreferrer">
+                          <div className="flex items-center gap-3 px-5 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white transition-colors text-emerald-600">
+                            <MessageSquare size={14} />
+                            WhatsApp Support
+                          </div>
+                        </a>
+                        <a href="mailto:renderreply@gmail.com">
+                          <div className="flex items-center gap-3 px-5 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white transition-colors text-slate-600">
+                            <Mail size={14} />
+                            Email Us
+                          </div>
+                        </a>
+                        <Link href="/faq" onClick={() => { setIsProfileMenuOpen(false); setIsMenuOpen(false); }}>
+                          <div className="flex items-center gap-3 px-5 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white transition-colors text-slate-600">
+                            <HelpCircle size={14} />
+                            FAQ
+                          </div>
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               )}
@@ -200,27 +216,41 @@ export function Navbar() {
                     </div>
                   </div>
 
-                  {/* Customer Support Section Mobile */}
+                  {/* Customer Support Collapsible Mobile */}
                   <div className="p-2 border-t border-slate-50 bg-slate-50/50 rounded-b-[24px]">
-                    <p className="px-4 py-2 text-[8px] font-black uppercase tracking-[0.2em] text-slate-400">Support</p>
-                    <a href="https://wa.me/917995463504?text=Hi%20RenderReply%20Support,%20I%20need%20help%20with%20my%20account." target="_blank" rel="noopener noreferrer">
-                      <div className="flex items-center gap-3 px-4 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-white transition-colors text-emerald-600">
-                        <MessageSquare size={14} />
-                        WhatsApp
-                      </div>
-                    </a>
-                    <a href="mailto:renderreply@gmail.com">
-                      <div className="flex items-center gap-3 px-4 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-white transition-colors text-slate-600">
-                        <Mail size={14} />
-                        Email
-                      </div>
-                    </a>
-                    <Link href="/faq" onClick={() => setIsProfileMenuOpen(false)}>
-                      <div className="flex items-center gap-3 px-4 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-white transition-colors text-slate-600">
+                    <button 
+                      onClick={() => setIsSupportOpen(!isSupportOpen)}
+                      className="w-full flex items-center justify-between px-4 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-white transition-colors text-slate-500"
+                    >
+                      <div className="flex items-center gap-3">
                         <HelpCircle size={14} />
-                        FAQ
+                        Customer Support
                       </div>
-                    </Link>
+                      <ChevronDown size={12} className={`transition-transform duration-300 ${isSupportOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {isSupportOpen && (
+                      <div className="mt-1 space-y-0.5 animate-in slide-in-from-top-1 duration-200">
+                        <a href="https://wa.me/917995463504?text=Hi%20RenderReply%20Support,%20I%20need%20help%20with%20my%20account." target="_blank" rel="noopener noreferrer">
+                          <div className="flex items-center gap-3 px-4 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-white transition-colors text-emerald-600">
+                            <MessageSquare size={14} />
+                            WhatsApp
+                          </div>
+                        </a>
+                        <a href="mailto:renderreply@gmail.com">
+                          <div className="flex items-center gap-3 px-4 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-white transition-colors text-slate-600">
+                            <Mail size={14} />
+                            Email
+                          </div>
+                        </a>
+                        <Link href="/faq" onClick={() => { setIsProfileMenuOpen(false); setIsMobileMenuOpen(false); }}>
+                          <div className="flex items-center gap-3 px-4 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-white transition-colors text-slate-600">
+                            <HelpCircle size={14} />
+                            FAQ
+                          </div>
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               )}
