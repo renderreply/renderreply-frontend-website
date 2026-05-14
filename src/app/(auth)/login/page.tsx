@@ -48,12 +48,12 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-slate-50 relative overflow-hidden font-sans">
       <main className="w-full max-w-[440px] px-6 py-12 relative z-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
-        {/* Logo Section */}
-        <div className="flex flex-col items-center mb-8">
-          <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center shadow-xl mb-4 rotate-3">
-            <span className="text-white text-2xl font-black italic">R</span>
-          </div>
-          <h2 className="text-slate-900 text-lg font-black tracking-tight">RenderReply</h2>
+        {/* Official Logo Section */}
+        <div className="flex flex-col items-center mb-10">
+          <h1 className="text-3xl font-[1000] tracking-tighter text-slate-900 flex items-center">
+            RenderReply<span className="text-black ml-0.5">.</span>
+          </h1>
+          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mt-2">Elite Automation</p>
         </div>
 
         {/* Clean Light Card */}

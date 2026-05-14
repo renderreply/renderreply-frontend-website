@@ -46,12 +46,12 @@ export default function SignupPage() {
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-slate-50 relative overflow-hidden font-sans">
       <main className="w-full max-w-[480px] px-6 py-12 relative z-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
-        {/* Logo Section */}
+        {/* Official Logo Section */}
         <div className="flex flex-col items-center mb-8">
-          <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center shadow-xl mb-4 -rotate-3">
-            <span className="text-white text-xl font-black italic">R</span>
-          </div>
-          <h2 className="text-slate-900 text-lg font-black tracking-tight">RenderReply</h2>
+          <h1 className="text-3xl font-[1000] tracking-tighter text-slate-900 flex items-center">
+            RenderReply<span className="text-black ml-0.5">.</span>
+          </h1>
+          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mt-2">Elite Automation</p>
         </div>
 
         {/* Clean Light Card */}
