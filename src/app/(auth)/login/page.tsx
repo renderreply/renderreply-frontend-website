@@ -8,11 +8,12 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -75,7 +76,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required 
-                className="h-14 rounded-2xl bg-white/5 border-white/10 text-white px-5 focus-visible:ring-purple-500/50 focus-visible:bg-white/10 transition-all placeholder:text-slate-600"
+                className="h-14 rounded-2xl bg-white/5 border-white/10 text-white px-5 focus-visible:ring-purple-500/50 focus-visible:bg-white/10 transition-all placeholder:text-slate-600 shadow-none outline-none"
               />
             </div>
             
@@ -84,14 +85,23 @@ export default function LoginPage() {
                 <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Password</label>
                 <button type="button" className="text-[10px] font-black uppercase tracking-[0.1em] text-purple-400 hover:text-purple-300 transition-colors">Forgot?</button>
               </div>
-              <Input 
-                type="password" 
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required 
-                className="h-14 rounded-2xl bg-white/5 border-white/10 text-white px-5 focus-visible:ring-purple-500/50 focus-visible:bg-white/10 transition-all placeholder:text-slate-600"
-              />
+              <div className="relative">
+                <Input 
+                  type={showPassword ? "text" : "password"} 
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required 
+                  className="h-14 rounded-2xl bg-white/5 border-white/10 text-white px-5 pr-12 focus-visible:ring-purple-500/50 focus-visible:bg-white/10 transition-all placeholder:text-slate-600 shadow-none outline-none"
+                />
+                <button 
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors"
+                >
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
             </div>
             
             <Button type="submit" disabled={loading} className="w-full h-14 rounded-2xl bg-white text-black hover:bg-slate-200 font-black text-sm transition-all active:scale-[0.98] mt-4 shadow-xl shadow-white/5">
@@ -101,6 +111,8 @@ export default function LoginPage() {
 
           <p className="text-sm font-medium text-slate-500 mt-10 text-center">
             Don't have an account?{" "}
+            <Link href="/signup" className="text-white hover:text-purple-400 font-bold transition-colors">
+              Sign up
             </Link>
           </p>
         </div>
