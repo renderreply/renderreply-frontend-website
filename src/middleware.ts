@@ -2,8 +2,9 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(req: NextRequest) {
-  const isAuthPage = req.nextUrl.pathname === "/login" || req.nextUrl.pathname === "/signup";
-  const isPublicPage = req.nextUrl.pathname === "/privacy" || req.nextUrl.pathname === "/terms" || req.nextUrl.pathname === "/refund" || req.nextUrl.pathname === "/deletion";
+  const path = req.nextUrl.pathname;
+  const isAuthPage = path.startsWith("/login") || path.startsWith("/signup");
+  const isPublicPage = path.startsWith("/privacy") || path.startsWith("/terms") || path.startsWith("/refund") || path.startsWith("/deletion");
   
   // Check for NextAuth session token (handles both HTTP and HTTPS local/prod environments)
   const hasToken = req.cookies.has("next-auth.session-token") || req.cookies.has("__Secure-next-auth.session-token");
