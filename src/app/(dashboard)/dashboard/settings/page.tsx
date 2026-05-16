@@ -154,7 +154,7 @@ export default function SettingsPage() {
               
               <div className="pt-6 border-t border-slate-50">
                 <p className="text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground/60 mb-6">Platform Policies</p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Link href="/privacy">
                     <Button variant="ghost" className="w-full rounded-2xl font-bold py-7 bg-slate-50 hover:bg-slate-100">Privacy Policy</Button>
                   </Link>
@@ -163,6 +163,9 @@ export default function SettingsPage() {
                   </Link>
                   <Link href="/refund">
                     <Button variant="ghost" className="w-full rounded-2xl font-bold py-7 bg-slate-50 hover:bg-slate-100">Refund Policy</Button>
+                  </Link>
+                  <Link href="/deletion">
+                    <Button variant="ghost" className="w-full rounded-2xl font-bold py-7 bg-slate-50 hover:bg-slate-100 text-rose-600 hover:text-rose-700">Data Deletion</Button>
                   </Link>
                 </div>
               </div>
