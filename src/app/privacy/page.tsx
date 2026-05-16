@@ -12,8 +12,8 @@ export default function PrivacyPolicy() {
             </div>
             RenderReply
           </Link>
-          <Link href="/dashboard/settings" className="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-black transition-colors bg-slate-50 px-4 py-2 rounded-full border border-slate-100">
-            <ArrowLeft className="w-4 h-4" /> Back to Settings
+          <Link href="/" className="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-black transition-colors bg-slate-50 px-4 py-2 rounded-full border border-slate-100">
+            <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
         </div>
       </header>
@@ -22,123 +22,131 @@ export default function PrivacyPolicy() {
         <div className="space-y-4 mb-16 border-b border-slate-100 pb-10">
           <p className="text-xs font-black tracking-[0.2em] text-slate-400 uppercase">Laventra Technologies LLP</p>
           <h1 className="text-4xl md:text-6xl font-[1000] tracking-tight text-black">Privacy Policy</h1>
-          <p className="text-slate-500 font-medium text-lg">Last updated: May 2, 2026</p>
+          <p className="text-slate-500 font-medium text-lg">Effective Date: May 16, 2026</p>
         </div>
 
         <article className="space-y-10 text-base md:text-lg text-slate-600 leading-relaxed">
           <section>
+            <h2 className="text-2xl font-black text-black mb-4">1. Introduction</h2>
             <p className="mb-4">
-              Welcome to <strong>RenderReply</strong>, an Instagram Automation Platform operated by <strong>Laventra Technologies LLP</strong> ("Company", "we", "us", or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regard to your personal information, please contact us at <strong>legal@renderreply.com</strong>.
+              Welcome to <strong>RenderReply</strong> ("renderreply.com"), an Instagram automation platform operated by <strong>Laventra Technologies LLP</strong> ("Company", "we", "us", or "our"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our SaaS application (collectively, the "Services").
             </p>
             <p>
-              This Privacy Policy applies to all information collected through our website (renderreply.com), and/or any related services, sales, marketing, or events (we refer to them collectively in this Privacy Policy as the "Services"). By utilizing our Services, you consent to the data practices described in this statement, which complies with applicable Indian laws, including the Information Technology Act, 2000, and the Consumer Protection Act, 2019.
+              By accessing or using our Services, you signify that you have read, understood, and agree to our collection, storage, use, and disclosure of your personal information as described in this Privacy Policy.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">1. What Data We Collect</h2>
-            <p className="mb-4">We collect personal information that you voluntarily provide to us when you register on the Services, express an interest in obtaining information about us or our products and services, or otherwise when you contact us. The personal information that we collect depends on the context of your interactions with us and the Services, the choices you make, and the products and features you use.</p>
+            <h2 className="text-2xl font-black text-black mb-4">2. Company Details</h2>
+            <p className="mb-4">
+              RenderReply is a product developed and maintained by Laventra Technologies LLP. We provide automation tools allowing users to connect their Instagram creator or business accounts through official Meta APIs to automatically reply to comments using predefined rules and AI-generated responses.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-black mb-4">3. Information We Collect</h2>
+            <p className="mb-4">We collect information that identifies, relates to, describes, or could reasonably be linked, directly or indirectly, with a particular consumer or device ("Personal Information"). Specifically, we collect:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Personal Identifiable Information (PII):</strong> Full name, email address, and account credentials.</li>
-              <li><strong>Instagram Account Data:</strong> Usernames, Meta/Instagram authentication tokens, profile details, and linked Facebook Page information required for API integrations.</li>
-              <li><strong>Payment Information:</strong> Billing details necessary to process your subscription (Free or Pro plan at ₹499/month). Payment processing is handled securely by Razorpay; we do not store full credit card numbers or UPI PINs on our servers.</li>
-              <li><strong>Usage Data:</strong> Diagnostic data, log files, IP addresses, browser types, and engagement metrics tracking how you interact with our platform.</li>
+              <li><strong>Contact Information:</strong> Name, email address, and other similar contact data.</li>
+              <li><strong>Instagram Account Details:</strong> Meta/Instagram usernames, profile details, and data required to execute automation workflows.</li>
+              <li><strong>Access Tokens:</strong> OAuth tokens generated when you voluntarily authorize our application via official Meta APIs.</li>
+              <li><strong>Usage Analytics:</strong> Information on how you interact with our Services, including diagnostic data, log files, and feature engagement metrics.</li>
+              <li><strong>Device & Browser Information:</strong> IP address, browser type, operating system, and device identifiers.</li>
+              <li><strong>Payment Information:</strong> Billing details securely processed through our payment gateway, Razorpay. We do not store complete credit card numbers on our servers.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">2. How We Collect Your Data</h2>
-            <p className="mb-4">We gather information through various touchpoints to ensure the seamless operation of RenderReply:</p>
+            <h2 className="text-2xl font-black text-black mb-4">4. How We Use Your Data</h2>
+            <p className="mb-4">We use the personal information collected via our Services for a variety of business purposes described below:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Direct Input:</strong> Information provided during the sign-up process, subscription upgrades, and direct communication with our support team.</li>
-              <li><strong>Instagram OAuth:</strong> When you connect your Instagram Business or Creator account, we use Meta's secure OAuth protocol to collect necessary permissions and tokens.</li>
-              <li><strong>Cookies and Tracking Technologies:</strong> We use cookies, web beacons, and similar tracking technologies to store your preferences, analyze platform performance, and keep you logged in.</li>
+              <li><strong>Automation Operations:</strong> To facilitate and execute automated Instagram replies based on your customized configurations.</li>
+              <li><strong>Account Authentication:</strong> To securely create, log in, and manage your user account.</li>
+              <li><strong>Analytics & Improvement:</strong> To monitor and analyze usage patterns to enhance and improve our platform's functionality.</li>
+              <li><strong>Customer Support:</strong> To resolve your technical issues, provide support, and respond to inquiries.</li>
+              <li><strong>Security Monitoring:</strong> To monitor for unauthorized access, ensure robust network security, and prevent fraudulent activities.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">3. Why We Collect Your Data</h2>
-            <p className="mb-4">Our primary goal in collecting information is to provide you with a secure, efficient, and customized automation experience. We use the collected data for the following purposes:</p>
+            <h2 className="text-2xl font-black text-black mb-4">5. Data Storage and Protection</h2>
+            <p className="mb-4">
+              We employ stringent organizational, technical, and administrative measures to protect your Personal Information. Your data is stored on secure, industry-leading cloud infrastructure. We restrict access to your information to authorized personnel strictly on a need-to-know basis.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-black mb-4">6. Encryption and Security Practices</h2>
+            <p className="mb-4">
+              Security is a core tenet of RenderReply. We implement industry-standard encryption protocols (such as TLS/SSL) during data transmission. Highly sensitive data, particularly Meta OAuth access tokens and authentication credentials, are encrypted at rest using advanced cryptographic algorithms.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-black mb-4">7. Third-Party Services</h2>
+            <p className="mb-4">We integrate with trusted third-party service providers to deliver essential capabilities:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li>To provide and maintain our Service, including executing automated comment replies, story replies, and DM triggers via the Instagram API.</li>
-              <li>To manage your account, billing processes, and subscription tier (e.g., managing the ₹499/month Pro plan).</li>
-              <li>To send administrative information, service updates, and technical notices.</li>
-              <li>To provide customer support and respond to inquiries.</li>
-              <li>To enforce our Terms and Conditions, comply with legal obligations, and prevent fraudulent activity.</li>
+              <li><strong>Meta APIs:</strong> Used officially for Instagram authentication and executing comment replies. You remain subject to Meta's Platform Policies.</li>
+              <li><strong>Razorpay:</strong> Our designated payment processor for handling SaaS subscription billing securely.</li>
+              <li><strong>Database & Hosting (MongoDB Atlas / Vercel / Railway):</strong> We utilize modern cloud infrastructure to host our application and securely persist user data.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">4. How We Store and Protect Your Data</h2>
-            <p className="mb-4">
-              Laventra Technologies LLP employs industry-standard organizational and technical security measures designed to protect the security of any personal information we process.
-            </p>
+            <h2 className="text-2xl font-black text-black mb-4">8. Your Data Rights</h2>
+            <p className="mb-4">In alignment with global data protection principles, you possess the following rights:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Encryption:</strong> Sensitive data, such as Meta API access tokens and user passwords, are heavily encrypted at rest using modern cryptographic hashing algorithms (e.g., bcrypt).</li>
-              <li><strong>Secure Servers:</strong> Our databases and application servers are hosted in secure, access-controlled cloud environments.</li>
-              <li><strong>Transmission Security:</strong> All data transferred between your browser, our servers, and third-party APIs is encrypted using SSL/TLS protocols.</li>
-            </ul>
-            <p className="mt-4">
-              Despite our safeguards, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure. You are responsible for keeping your account credentials confidential.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-black text-black mb-4">5. Third-Party Sharing</h2>
-            <p className="mb-4">
-              We do <strong>not</strong> sell, rent, or trade your personal information to third parties for their promotional purposes. We only share information with the following categories of third parties as necessary to provide our Services:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Meta/Instagram API:</strong> We transmit automation payloads (such as trigger rules and auto-reply messages) to Meta's servers to execute the core functionality of RenderReply.</li>
-              <li><strong>Payment Processors:</strong> We use Razorpay to process all INR (₹) transactions securely. Razorpay handles your financial data under their own strict privacy policies.</li>
-              <li><strong>Analytics and Infrastructure Providers:</strong> Trusted third-party cloud hosting and analytics services that assist us in operating our business, under strict confidentiality agreements.</li>
+              <li><strong>Right to Download Data:</strong> You may request an export of the personal data we hold associated with your account.</li>
+              <li><strong>Right to Revoke Access:</strong> You can disconnect your Instagram account and revoke our Meta permissions at any time through your Meta Account Settings or our platform dashboard.</li>
+              <li><strong>Right to Request Deletion:</strong> You may request the complete removal of your account and personal data. Please refer to our <Link href="/deletion" className="text-blue-600 hover:underline">Data Deletion Instructions</Link> for step-by-step guidance.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">6. User Rights Under Indian Law</h2>
+            <h2 className="text-2xl font-black text-black mb-4">9. Cookies and Tracking Technologies</h2>
             <p className="mb-4">
-              As a user residing in India, you are protected under the Information Technology Act, 2000, and the Consumer Protection (E-Commerce) Rules, 2020. You hold the following rights regarding your data:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Right to Access:</strong> You may request a copy of the personal data we hold about you.</li>
-              <li><strong>Right to Correction:</strong> You may update or correct any inaccurate or incomplete personal information through your account settings.</li>
-              <li><strong>Right to Deletion:</strong> You may request the permanent deletion of your account and associated personal data, subject to legal data retention requirements.</li>
-              <li><strong>Grievance Redressal:</strong> You have the right to file a complaint regarding data privacy with our designated Grievance Officer via the contact details provided below.</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-black text-black mb-4">7. Instagram/Meta Data Usage Compliance</h2>
-            <p className="mb-4">
-              RenderReply operates in strict compliance with the Meta Platform Policy and Instagram Developer Guidelines. We only request permissions necessary to execute authorized automation. By using RenderReply, you acknowledge that we do not own the data processed through the Instagram API. Our usage of information received from Instagram APIs will adhere to the Meta App Developer Terms. We regularly undergo app reviews to ensure continuous compliance.
+              We utilize cookies, web beacons, and similar tracking technologies to maintain your active session, track user traffic patterns, and deliver a personalized experience. You can manage your cookie preferences through your browser settings, though disabling essential cookies may impact platform functionality.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">8. Cookie Policy</h2>
+            <h2 className="text-2xl font-black text-black mb-4">10. Children's Privacy Policy</h2>
             <p className="mb-4">
-              Cookies are small text files placed on your device to collect standard Internet log information and visitor behavior information. We use essential cookies to keep you logged into your RenderReply dashboard securely. We may also use analytical cookies to understand how you use our website, enabling us to improve the user experience. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent; however, if you do not accept essential cookies, you may not be able to use portions of our Service.
+              Our Services are designed for adult creators and businesses. We do not knowingly collect personal information from children under 18 years of age. If we become aware that we have collected such data, we will take immediate steps to permanently delete it.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">9. Data Retention Policy</h2>
+            <h2 className="text-2xl font-black text-black mb-4">11. Limitation of Liability</h2>
             <p className="mb-4">
-              We will only keep your personal information for as long as it is necessary for the purposes set out in this Privacy Policy, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). Upon account deletion, all active Instagram access tokens and automation rules are immediately destroyed. We may retain basic billing records as mandated by Indian taxation authorities.
+              Users are solely responsible for ensuring their use of RenderReply complies with Instagram's Community Guidelines and Meta's Terms of Service. RenderReply shall not be held liable for any account suspensions, shadowbans, or penalties imposed by Instagram resulting from the user's configuration of automated replies or AI responses.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">10. Contact Us</h2>
+            <h2 className="text-2xl font-black text-black mb-4">12. International Data Processing</h2>
             <p className="mb-4">
-              If you have questions, comments, or wish to exercise your rights concerning this Privacy Policy, please contact our Legal and Compliance team:
+              Your information may be transferred to, processed, and maintained on servers located outside of your governmental jurisdiction where data protection laws may differ. By utilizing our Services, you explicitly consent to the processing and global storage of your data.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-black mb-4">13. Changes to This Policy</h2>
+            <p className="mb-4">
+              We reserve the right to update this Privacy Policy periodically to reflect technological advancements, legal requirements, or operational adjustments. We will notify users of significant material changes via our platform or email notifications.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-black mb-4">14. Contact Information</h2>
+            <p className="mb-4">
+              For any privacy-related inquiries, data requests, or concerns, please contact our Data Protection Officer at:
             </p>
             <ul className="list-none space-y-2 font-bold text-black bg-slate-50 p-6 rounded-2xl border border-slate-100">
               <li>Company: Laventra Technologies LLP</li>
-              <li>Product: RenderReply</li>
-              <li>Email: legal@renderreply.com</li>
-              <li>Country: India</li>
+              <li className="leading-relaxed">Address: 7th Block, 3rd Floor, Malla Reddy University, Maisammaguda, Dulapally, Secunderabad, Hyderabad, Telangana – 500100, India</li>
+              <li>Email: renderreply@gmail.com</li>
+              <li>Website: renderreply.com</li>
             </ul>
           </section>
         </article>

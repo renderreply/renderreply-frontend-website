@@ -12,8 +12,8 @@ export default function RefundPolicy() {
             </div>
             RenderReply
           </Link>
-          <Link href="/dashboard/settings" className="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-black transition-colors bg-slate-50 px-4 py-2 rounded-full border border-slate-100">
-            <ArrowLeft className="w-4 h-4" /> Back to Settings
+          <Link href="/" className="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-black transition-colors bg-slate-50 px-4 py-2 rounded-full border border-slate-100">
+            <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
         </div>
       </header>
@@ -22,102 +22,91 @@ export default function RefundPolicy() {
         <div className="space-y-4 mb-16 border-b border-slate-100 pb-10">
           <p className="text-xs font-black tracking-[0.2em] text-slate-400 uppercase">Laventra Technologies LLP</p>
           <h1 className="text-4xl md:text-6xl font-[1000] tracking-tight text-black">Refund Policy</h1>
-          <p className="text-slate-500 font-medium text-lg">Last updated: May 2, 2026</p>
+          <p className="text-slate-500 font-medium text-lg">Effective Date: May 16, 2026</p>
         </div>
 
         <article className="space-y-10 text-base md:text-lg text-slate-600 leading-relaxed">
           <section>
             <p className="mb-4">
-              Thank you for choosing <strong>RenderReply</strong>, a SaaS product developed by <strong>Laventra Technologies LLP</strong>. We strive to provide a robust and flawless Instagram automation experience. However, because RenderReply is a digital software service that incurs immediate server and API costs upon usage, we enforce a strict refund policy to prevent abuse.
+              Thank you for choosing <strong>RenderReply</strong>, a digital SaaS automation service provided by <strong>Laventra Technologies LLP</strong>. We strive to deliver an exceptional experience to help you automate your Instagram engagement. Please read our Refund Policy carefully to understand your rights regarding subscription payments.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">1. General Policy (Non-Refundable by Default)</h2>
+            <h2 className="text-2xl font-black text-black mb-4">1. Subscription Billing Policy</h2>
             <p className="mb-4">
-              Due to the nature of digital SaaS products, all subscription payments (including the ₹499/month Pro plan) are <strong>non-refundable by default</strong>. When you subscribe to our service, you are immediately granted access to premium automation features, and we begin incurring infrastructure costs on your behalf.
+              RenderReply operates on a recurring billing model offering both monthly and yearly subscription plans. Payments are processed securely via our gateway partner, Razorpay. By upgrading to a paid tier, you authorize automatic renewals until you cancel your subscription. As we provide an intangible digital SaaS service, there are no physical products shipped or returned.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">2. Exceptions for Refunds</h2>
+            <h2 className="text-2xl font-black text-black mb-4">2. Trial Policy</h2>
             <p className="mb-4">
-              We value our customers and understand that technical anomalies can occur. We will grant a full or partial refund <em>only</em> under the following exceptional circumstances:
+              If we offer a free trial, you will not be charged until the trial period expires. We encourage users to fully evaluate the platform's features during this trial period before committing to a paid subscription.
             </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-black mb-4">3. General Refund Eligibility (Non-Refundable)</h2>
+            <p className="mb-4">
+              Because RenderReply offers immediate access to premium automation features and incurs server/API costs, <strong>refunds are generally not provided once services have been used or after a billing cycle has commenced</strong>. We do not offer prorated refunds for mid-cycle cancellations.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-black mb-4">4. Exceptions for Refund</h2>
+            <p className="mb-4">We may, at our sole discretion, issue a refund in the following exceptional situations:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Verified Technical Failure:</strong> A critical bug or prolonged downtime originating entirely from our servers that prevents you from using the core automation features, which our support team is unable to resolve.</li>
-              <li><strong>Double Charge:</strong> You were billed multiple times for the same billing cycle due to a payment gateway error.</li>
-              <li><strong>Service Not Delivered:</strong> Your account was charged, but the Pro features were not activated on your account.</li>
+              <li><strong>Duplicate Payments:</strong> If you were erroneously charged multiple times for the same subscription period due to a technical glitch.</li>
+              <li><strong>Technical Failures:</strong> If a prolonged, platform-wide technical failure prevents you from utilizing the core automation features, and our support team cannot resolve the issue.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">3. Refund Request Window</h2>
+            <h2 className="text-2xl font-black text-black mb-4">5. Cancellation Policy</h2>
             <p className="mb-4">
-              If your situation falls under one of the exceptions listed above, you must submit your refund request within <strong>7 days</strong> of the initial charge. Requests made after this 7-day window will not be entertained under any circumstances.
+              You can cancel your RenderReply subscription at any time through the billing section of your dashboard. Upon cancellation, you will retain access to your paid features until the end of your current billing cycle. No further charges will be applied thereafter.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">4. Conditions Where Refunds Are Strictly Denied</h2>
+            <h2 className="text-2xl font-black text-black mb-4">6. Failed Payment Handling</h2>
             <p className="mb-4">
-              To maintain fairness and platform integrity, we will <strong>not</strong> issue refunds for the following reasons:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Partial Month Usage:</strong> You used the service for a few days and decided you no longer need it. We do not prorate monthly plans.</li>
-              <li><strong>Account Suspension:</strong> Your RenderReply account was banned or suspended due to violations of our Terms of Service (e.g., spamming).</li>
-              <li><strong>Instagram Actions:</strong> Your Instagram account was restricted, shadow-banned, or deleted by Meta. We do not control Meta's moderation algorithms and are not liable for their actions.</li>
-              <li><strong>Change of Mind:</strong> You simply changed your mind or failed to cancel your auto-renewal subscription before the billing date.</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-black text-black mb-4">5. Annual Plan Refunds</h2>
-            <p className="mb-4">
-              If you are subscribed to an annual billing plan and experience a verified technical failure that we cannot fix, we may, at our sole discretion, offer a <strong>pro-rata refund</strong> for the unused months remaining on your annual term.
+              If your automatic recurring payment fails, we will attempt to retry the charge over a standard grace period. If payment remains unsuccessful, your account will automatically be downgraded to the free tier, and premium automation rules will be paused.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">6. How to Request a Refund</h2>
+            <h2 className="text-2xl font-black text-black mb-4">7. Chargeback Policy & Fraud Prevention</h2>
             <p className="mb-4">
-              To initiate a refund review, you must contact our billing department directly:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Email us at: <strong>support@renderreply.com</strong></li>
-              <li>Include the email address associated with your RenderReply account.</li>
-              <li>Provide your Razorpay Order ID or transaction receipt.</li>
-              <li>Include a detailed explanation of the technical failure or billing error (with screenshots if applicable).</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-black text-black mb-4">7. Refund Processing Timeline and Provider</h2>
-            <p className="mb-4">
-              All approved refunds are processed exclusively through our payment partner, <strong>Razorpay</strong>.
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Once our team approves your request, the refund will be initiated within 24-48 hours.</li>
-              <li>It typically takes <strong>5–7 business days</strong> for the funds to reflect back in your original payment method (bank account, credit card, or UPI), depending on your bank's processing times.</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-black text-black mb-4">8. Governing Law</h2>
-            <p className="mb-4">
-              This Refund Policy is governed by the laws of India, including the Consumer Protection Act, 2019, and the guidelines set forth by the Reserve Bank of India (RBI) regarding digital payments.
+              We take fraud and payment abuse seriously. If you initiate a chargeback with your bank or credit card company without first contacting our support team, we reserve the right to immediately suspend or permanently terminate your RenderReply account and dispute the chargeback with evidence of your platform usage.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black text-black mb-4">9. Contact Us</h2>
+            <h2 className="text-2xl font-black text-black mb-4">8. Processing Timelines</h2>
             <p className="mb-4">
-              For any payment or refund-related disputes, please reach out to us at:
+              If an exceptional refund is approved by our team, it will be processed back to your original payment method via Razorpay. Please allow 5-10 business days for the funds to reflect in your account, depending on your bank's processing timelines.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-black mb-4">9. Tax and GST Clarification</h2>
+            <p className="mb-4">
+              Subscription prices may be inclusive or exclusive of GST/taxes as indicated during checkout. If a refund is issued, the corresponding tax amount collected will also be refunded in accordance with applicable Indian tax laws.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-black mb-4">10. Contact Information</h2>
+            <p className="mb-4">
+              If you believe you qualify for a refund exception or need assistance with billing, please contact our support team:
             </p>
             <ul className="list-none space-y-2 font-bold text-black bg-slate-50 p-6 rounded-2xl border border-slate-100">
               <li>Company: Laventra Technologies LLP</li>
-              <li>Product: RenderReply</li>
-              <li>Email: support@renderreply.com</li>
+              <li className="leading-relaxed">Address: 7th Block, 3rd Floor, Malla Reddy University, Maisammaguda, Dulapally, Secunderabad, Hyderabad, Telangana – 500100, India</li>
+              <li>Support Email: renderreply@gmail.com</li>
+              <li>Website: renderreply.com</li>
             </ul>
           </section>
         </article>

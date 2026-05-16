@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Shield } from "lucide-react";
+import { ArrowLeft, Trash2, Unlink, Mail, ShieldCheck } from "lucide-react";
 
 export default function DataDeletion() {
   return (
@@ -20,65 +20,90 @@ export default function DataDeletion() {
 
       <main className="max-w-4xl mx-auto px-6 mt-16 md:mt-24">
         <div className="space-y-4 mb-16 border-b border-slate-100 pb-10">
-          <div className="w-12 h-12 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mb-6">
-            <Shield className="w-6 h-6" />
-          </div>
           <p className="text-xs font-black tracking-[0.2em] text-slate-400 uppercase">Laventra Technologies LLP</p>
           <h1 className="text-4xl md:text-6xl font-[1000] tracking-tight text-black">Data Deletion Instructions</h1>
-          <p className="text-slate-500 font-medium text-lg">How to manage and delete your data from RenderReply.</p>
+          <p className="text-slate-500 font-medium text-lg">Your privacy and data control are our top priorities.</p>
         </div>
 
         <article className="space-y-10 text-base md:text-lg text-slate-600 leading-relaxed">
+          <section className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100">
+            <div className="flex items-start gap-4">
+              <div className="p-3 bg-blue-100 text-blue-600 rounded-2xl">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <div>
+                <h2 className="text-xl font-black text-black mb-2">Meta Platform Compliance</h2>
+                <p className="text-sm md:text-base text-slate-600">
+                  In strict compliance with Meta Platform requirements and global privacy standards, RenderReply provides users with transparent and accessible methods to permanently request the deletion of their accounts, automation rules, and connected Instagram data.
+                </p>
+              </div>
+            </div>
+          </section>
+
           <section>
+            <h2 className="text-2xl font-black text-black mb-6">Step-by-Step Deletion Process</h2>
+            
+            <div className="space-y-6">
+              <div className="flex gap-4 p-6 border border-slate-100 rounded-2xl hover:border-slate-300 transition-colors">
+                <div className="flex-shrink-0 w-10 h-10 bg-slate-100 text-black font-black rounded-full flex items-center justify-center">1</div>
+                <div>
+                  <h3 className="text-lg font-bold text-black flex items-center gap-2"><Unlink className="w-4 h-4 text-slate-400" /> Disconnecting Your Instagram Account</h3>
+                  <p className="mt-2 text-slate-600">
+                    Log into your RenderReply dashboard. Navigate to the <strong>Settings</strong> or <strong>Integrations</strong> page. Locate your connected Instagram account and click "Disconnect". This immediately stops all automation and deletes the active access tokens from our live database.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 p-6 border border-slate-100 rounded-2xl hover:border-slate-300 transition-colors">
+                <div className="flex-shrink-0 w-10 h-10 bg-slate-100 text-black font-black rounded-full flex items-center justify-center">2</div>
+                <div>
+                  <h3 className="text-lg font-bold text-black flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-slate-400" /> Revoking Meta Permissions</h3>
+                  <p className="mt-2 text-slate-600">
+                    To completely remove RenderReply's authorization, go to your personal Facebook/Meta account settings. Navigate to <strong>Settings & Privacy {'>'} Business Integrations</strong>. Locate "RenderReply" in the list and click "Remove".
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 p-6 border border-red-50 bg-red-50/50 rounded-2xl hover:border-red-100 transition-colors">
+                <div className="flex-shrink-0 w-10 h-10 bg-red-100 text-red-600 font-black rounded-full flex items-center justify-center">3</div>
+                <div>
+                  <h3 className="text-lg font-bold text-red-600 flex items-center gap-2"><Trash2 className="w-4 h-4" /> Requesting Permanent Deletion</h3>
+                  <p className="mt-2 text-slate-600">
+                    You can initiate full account deletion directly within the RenderReply dashboard under <strong>Account Settings {'>'} Danger Zone {'>'} Delete Account</strong>. Alternatively, you can submit a deletion request to our support team.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-black mb-4">Alternative Deletion Methods</h2>
+            <p className="mb-4">Users can also request deletion through the following support channels:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li><strong>Email:</strong> Send an email from your registered address to <strong>renderreply@gmail.com</strong> with the subject line "Data Deletion Request".</li>
+              <li><strong>Support System:</strong> Open a ticket through our in-app customer support widget.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-black mb-4">Deletion Timelines & Data Retention</h2>
             <p className="mb-4">
-              At <strong>RenderReply</strong>, we value your privacy and provide clear methods for you to manage or delete the data we process via the Meta/Instagram API. According to Meta's Platform Policy, we provide a <strong>User Data Deletion Callback</strong> and manual instructions for removing your information.
+              Upon receiving your request or initiating deletion via the dashboard, your account access will be revoked immediately. The complete eradication of your data (including automation logs, user profiles, and API connections) from our active databases typically occurs within <strong>7 business days</strong>.
             </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-black text-black mb-4">1. How to Remove the App via Facebook</h2>
-            <p className="mb-4">You can revoke RenderReply's access to your Instagram account and delete associated data by following these steps on Facebook:</p>
-            <ol className="list-decimal pl-6 space-y-4">
-              <li>Log into your Facebook account and go to <strong>Settings & Privacy</strong> &gt; <strong>Settings</strong>.</li>
-              <li>Look for the <strong>Security and Login</strong> section or <strong>Apps and Websites</strong>.</li>
-              <li>Find <strong>RenderReply</strong> in the list of active apps.</li>
-              <li>Click <strong>Remove</strong> next to the app name.</li>
-              <li>Confirm the removal. Once removed, we will no longer have access to your Instagram profile, and your access tokens will be invalidated immediately.</li>
-            </ol>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-black text-black mb-4">2. Requesting Manual Data Deletion</h2>
-            <p className="mb-4">If you wish to delete your entire RenderReply account, including your email, billing history, and automation rules, please follow these steps:</p>
+            <p className="mb-4 font-bold text-black">Important Exceptions:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li>Send an email to <strong>legal@renderreply.com</strong> from the email address associated with your account.</li>
-              <li>Use the subject line: <strong>Data Deletion Request - [Your Name/Username]</strong>.</li>
-              <li>Our compliance team will process your request within <strong>7 business days</strong>.</li>
-              <li>You will receive a confirmation email once all your personal data has been permanently purged from our databases.</li>
+              <li><strong>Encrypted Backups:</strong> Some of your data may remain temporarily in secure, encrypted server backups for up to <strong>30 days</strong> before being automatically overwritten.</li>
+              <li><strong>Legal & Security Retention:</strong> We may retain basic billing records, dispute logs, or information necessary to comply with legal obligations, resolve disputes, and enforce our agreements. This retained data is strictly isolated and not used for any other purpose.</li>
             </ul>
           </section>
 
-          <section>
-            <h2 className="text-2xl font-black text-black mb-4">3. What Data is Deleted?</h2>
-            <p className="mb-4">Upon a successful deletion request (manual or via Meta's callback), the following information is permanently removed:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>All encrypted Meta API Access Tokens.</li>
-              <li>Your Instagram Profile Metadata (Username, Profile Picture URL).</li>
-              <li>All Automation Rules and Trigger Configurations.</li>
-              <li>All Activity Logs and Engagement Metrics.</li>
-              <li>Your RenderReply Account Credentials (if requested).</li>
-            </ul>
-            <p className="mt-4 italic text-sm">Note: Basic billing records may be retained for tax and accounting purposes as required by Indian Law.</p>
-          </section>
-
-          <section className="bg-slate-50 p-8 rounded-3xl border border-slate-100">
-            <h3 className="text-xl font-black text-black mb-2">Need Help?</h3>
-            <p className="text-slate-500 mb-6">If you encounter any issues during the deletion process, our support team is ready to assist you.</p>
-            <a 
-              href="mailto:support@renderreply.com" 
-              className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition-all"
-            >
-              Contact Support
+          <section className="pt-8 border-t border-slate-100">
+            <h2 className="text-2xl font-black text-black mb-4">Need Help?</h2>
+            <p className="mb-4">
+              If you face any issues while attempting to delete your data or disconnect your Meta account, our team is ready to assist you.
+            </p>
+            <a href="mailto:renderreply@gmail.com" className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full font-bold hover:bg-slate-800 transition-colors">
+              <Mail className="w-4 h-4" /> Contact Support
             </a>
           </section>
         </article>
